@@ -4,6 +4,9 @@ import {
   GoogleAuthProvider 
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getMessaging } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging.js";
+
+export const messaging = getMessaging(app);
 
 // 🔴 YOUR REAL FIREBASE CONFIG (must be correct)
 const firebaseConfig = {
