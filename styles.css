@@ -1,0 +1,41 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 20px;
+    background: #f2f4f8;
+}
+
+.center {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.box {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
