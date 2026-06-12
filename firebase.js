@@ -11,8 +11,8 @@ const firebaseConfig = {
   authDomain: "assignment-tracker-56094.firebaseapp.com",
   projectId: "assignment-tracker-56094",
   storageBucket: "assignment-tracker-56094.appspot.com",
-  messagingSenderId: "XXXX",
-  appId: "XXXX"
+  messagingSenderId: "624686553192",
+  appId: "1:624686553192:web:eff0eb468a9f98d1a083dd"
 };
 
 // Initialize Firebase FIRST
