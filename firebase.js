@@ -7,7 +7,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebas
 
 // 🔴 YOUR REAL FIREBASE CONFIG (must be correct)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
+  apiKey:  "AIzaSyBXyQBAFs-upsx73AGmsvIYEWTGAr1gQwA",
   authDomain: "assignment-tracker-56094.firebaseapp.com",
   projectId: "assignment-tracker-56094",
   storageBucket: "assignment-tracker-56094.appspot.com",
