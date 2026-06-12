@@ -13,7 +13,6 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = "index.html";
     } else {
         // ONLY run notifications AFTER login is confirmed
-        enableNotifications();
     }
 });
 async function enableNotifications() {
