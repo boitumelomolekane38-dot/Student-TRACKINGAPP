@@ -2,6 +2,8 @@ import { auth } from "./firebase.js";
 import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging.js";
+import { messaging } from "./firebase.js";
 
 let assignments = JSON.parse(localStorage.getItem("assignments")) || [];
 
@@ -11,7 +13,24 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = "index.html";
     }
 });
+async function enableNotifications() {
+  try {
+    const permission = await Notification.requestPermission();
 
+    if (permission === "granted") {
+      const token = await getToken(messaging, {
+        vapidKey: "YOUR_VAPID_KEY_HERE"
+      });
+
+      console.log("FCM Token:", token);
+      alert("Notifications enabled!");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+enableNotifications();
 function save() {
     localStorage.setItem("assignments", JSON.stringify(assignments));
 }
