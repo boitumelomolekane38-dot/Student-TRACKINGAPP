@@ -6,13 +6,16 @@ import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.12
 import { messaging } from "./firebase.js";
 
 let assignments = JSON.parse(localStorage.getItem("assignments")) || [];
+let notified = [];
 
 // AUTH CHECK
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         window.location.href = "index.html";
     } else {
-        // ONLY run notifications AFTER login is confirmed
+        setTimeout(() => {
+            enableNotifications();
+        }, 1000);
     }
 });
 async function enableNotifications() {
@@ -32,7 +35,6 @@ async function enableNotifications() {
   }
 }
 
-enableNotifications();
 function save() {
     localStorage.setItem("assignments", JSON.stringify(assignments));
 }
@@ -85,17 +87,20 @@ function checkDeadlines() {
     const today = new Date().toISOString().split("T")[0];
 
     assignments.forEach(a => {
-        if (a.deadline === today) {
-            if (Notification.permission === "granted") {
+        if (a.deadline === today && !notified.includes(a.title)) {
+
+            if ("Notification" in window && Notification.permission === "granted") {
                 new Notification("⏰ Deadline today!", {
                     body: a.title
                 });
             }
+
+            notified.push(a.title);
         }
     });
 }
-
-setInterval(checkDeadlines, 60000);
+checkDeadlines();              // Check immediately
+setInterval(checkDeadlines, 60000); // Then check every minute
 
 // RENDER UI
 function render() {
@@ -125,10 +130,6 @@ function render() {
         `;
     });
 }
-
 render();
 
 // Ask notification permission
-if ("Notification" in window) {
-    Notification.requestPermission();
-}
