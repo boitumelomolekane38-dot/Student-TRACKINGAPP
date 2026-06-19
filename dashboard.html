@@ -1,26 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard</title>
-<link rel="stylesheet" href="styles.css">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<h1>📘 Assignment Dashboard</h1>
+<h1>🎓 Student Dashboard</h1>
 
-<div class="box">
-    <input id="title" placeholder="Assignment name">
-    <input id="deadline" type="date">
+<div class="card">
+    <h2>👤 Student Profile</h2>
 
-    <textarea id="sections" placeholder="Enter sections (comma separated)"></textarea>
+    <img src="https://via.placeholder.com/120"
+         alt="Profile"
+         style="border-radius:50%;">
 
-    <button onclick="addAssignment()">Add Assignment</button>
+    <p><strong>Name:</strong> Student Name</p>
+    <p><strong>Student No:</strong> ST2026001</p>
+    <p><strong>Email:</strong> student@email.com</p>
+    <p><strong>Course:</strong> Information Technology</p>
 </div>
 
-<div id="list"></div>
+<div class="card">
+    <h2>📋 Student Roster</h2>
 
-<script type="module" src="app.js"></script>
+    <table border="1" width="100%">
+        <tr>
+            <th>Name</th>
+            <th>Student No</th>
+            <th>Course</th>
+        </tr>
+
+        <tr>
+            <td>John Smith</td>
+            <td>ST001</td>
+            <td>IT</td>
+        </tr>
+
+        <tr>
+            <td>Sarah Jones</td>
+            <td>ST002</td>
+            <td>Business</td>
+        </tr>
+    </table>
+</div>
+
+<div class="card">
+    <h2>✅ Attendance Log</h2>
+
+    <textarea
+        id="attendance"
+        rows="6"
+        style="width:100%;"
+        placeholder="Enter attendance records..."></textarea>
+</div>
+
+<div class="card">
+    <h2>📝 Academic Notes</h2>
+
+    <textarea
+        id="notes"
+        rows="8"
+        style="width:100%;"
+        placeholder="Add academic notes or progress updates..."></textarea>
+</div>
+
+<div class="card">
+    <h2>📊 Quick Navigation</h2>
+
+    <button onclick="location.href='tracker.html'">
+        Assignment Tracker
+    </button>
+
+    <button onclick="location.href='progress.html'">
+        Progress Graph
+    </button>
+</div>
 
 </body>
 </html>
